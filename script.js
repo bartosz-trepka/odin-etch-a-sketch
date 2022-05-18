@@ -1,7 +1,7 @@
 function createGrid(counter) {
     for (let i = 0; i < counter; i++) {
         for (let j = 0; j < counter; j++) {
-            appendString += `<div class='box'style='width: ${100/counter}%'></div>`;
+            appendString += `<div class='box hover100'style='width: ${100/counter}%'></div>`;
         }
     }
     container.innerHTML = appendString;
@@ -13,17 +13,50 @@ function createGrid(counter) {
 function addHover() {
     for (let i = 0; i < gridList.length; i++) {
         gridList[i].addEventListener('mouseenter', () => {
-            getRandomRGB();
-            gridList[i].style.backgroundColor = randomRGB;
+            switch(gridList[i].classList[1]) {
+                case 'hover100':
+                    gridList[i].classList.toggle('hover100');
+                    gridList[i].classList.toggle('hover90');
+                    break;
+                case 'hover90':
+                    gridList[i].classList.toggle('hover90');
+                    gridList[i].classList.toggle('hover80');
+                    break;
+                case 'hover80':
+                    gridList[i].classList.toggle('hover80');
+                    gridList[i].classList.toggle('hover70');
+                    break;
+                case 'hover70':
+                    gridList[i].classList.toggle('hover70');
+                    gridList[i].classList.toggle('hover60');
+                    break;
+                case 'hover60':
+                    gridList[i].classList.toggle('hover60');
+                    gridList[i].classList.toggle('hover50');
+                    break;
+                case 'hover50':
+                    gridList[i].classList.toggle('hover50');
+                    gridList[i].classList.toggle('hover40');
+                    break;
+                case 'hover40':
+                    gridList[i].classList.toggle('hover40');
+                    gridList[i].classList.toggle('hover30');
+                    break;
+                case 'hover30':
+                    gridList[i].classList.toggle('hover30');
+                    gridList[i].classList.toggle('hover20');
+                    break;
+                case 'hover20':
+                    gridList[i].classList.toggle('hover20');
+                    gridList[i].classList.toggle('hover10');
+                    break;
+                case 'hover10':
+                    gridList[i].classList.toggle('hover10');
+                    gridList[i].classList.toggle('hover0');
+                    break;
+            }
         });
     }
-}
-
-function getRandomRGB() {
-    let red = Math.random() * 255;
-    let green = Math.random() * 255;
-    let blue = Math.random() * 255;
-    randomRGB = `rgb(${red}, ${green}, ${blue})`;
 }
 
 const container = document.getElementById('container');
