@@ -22,3 +22,7 @@ h1 {
     height: 30px;
     border: 1px solid black;
 }
+
+.hovered {
+    background-color: green;
+}
