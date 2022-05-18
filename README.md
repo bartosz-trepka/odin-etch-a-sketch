@@ -1,3 +1,3 @@
 # odin-etch-a-sketch
 
-Etch-a-Sketch (The Odin Project - Foundations)
+Etch-a-Sketch project using HTML, CSS, Flexbox and JavaScript (The Odin Project - Foundations)
