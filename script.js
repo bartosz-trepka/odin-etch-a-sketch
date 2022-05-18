@@ -1,7 +1,7 @@
 function createGrid(counter) {
     for (let i = 0; i < counter; i++) {
         for (let j = 0; j < counter; j++) {
-            appendString += `<div class='box' style="width: ${100/counter}%"></div>`;
+            appendString += `<div class='box'style='width: ${100/counter}%'></div>`;
         }
     }
     container.innerHTML = appendString;
@@ -13,17 +13,24 @@ function createGrid(counter) {
 function addHover() {
     for (let i = 0; i < gridList.length; i++) {
         gridList[i].addEventListener('mouseenter', () => {
-            gridList[i].classList += ' hovered';
+            getRandomRGB();
+            gridList[i].style.backgroundColor = randomRGB;
         });
     }
+}
+
+function getRandomRGB() {
+    let red = Math.random() * 255;
+    let green = Math.random() * 255;
+    let blue = Math.random() * 255;
+    randomRGB = `rgb(${red}, ${green}, ${blue})`;
 }
 
 const container = document.getElementById('container');
 const gridList = container.getElementsByTagName('div');
 const newGridButton = document.getElementById('new-grid');
 
-let appendString = "";
-let counter = 16;
+let appendString = "", counter = 16, randomRGB = "";
 
 createGrid(counter);
 
@@ -37,5 +44,3 @@ newGridButton.addEventListener('click', () => {
     container.innerHTML = "";
     createGrid(counter);
 });
-
-//style='width: ${counter}vw; height: ${counter}vw
